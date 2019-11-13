@@ -39,8 +39,8 @@ User can configure custom reports by writing their own scripts. A new shared con
 **!! IMPORTANT !!**  
 
 - Please do not have any print statements in your report script  
-- The script to keep adding comma separated values in a variable called `report`
-- Every row being appended can have a new line separator
+- The script should keep adding comma separated values in a variable called `report`
+- Every row being appended should have a new line separator
 
 #### Snapshot 1
 
@@ -81,7 +81,7 @@ Pulls the list of custom reports
 #### Snapshot 6
 ![](images/snap6.png)
 
-**REST API** : http://localhost:6516/api/extension/report?type=<name> ( GET, basicauth )
+**REST API** : http://localhost:6516/api/extension/report?type=< reportname > ( GET, basicauth )
 
 Pulls the actual report
 
