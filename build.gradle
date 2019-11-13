@@ -1,11 +1,11 @@
 
 plugins {
-  id "com.github.hierynomus.license" version "0.15.0"
+  id "com.github.hierynomus.license" version "0.14.0"
   id "nebula.release" version "13.0.0"
-  id "com.github.hierynomus.jython" version "0.11.0"
 }
 
 apply plugin: 'java'
+apply plugin: 'maven'
 
 
 if (!project.hasProperty('release.scope')) {
