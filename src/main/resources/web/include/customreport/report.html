@@ -1,0 +1,57 @@
+<!--
+    Copyright 2019 XEBIALABS
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+	<div ng-controller="xlrelease.report.ReportController as ReportController" class="container">
+		<div  class="row clearfix">
+  			
+  			<div class="col-4 column">
+  				<label >Custom Report List</label>
+				<select class="form-control" id="dropdownselect"  ng-model="selectedValue" >
+			      <option ng-repeat="item in resultCis track by $index" ng-value="item">{{item}}</option>
+			    </select>
+			</div>
+			<div class="col-4 column">
+					<button ng-click="testreport()" class="btn btn-default">Test Report</button>
+			</div>
+			<div class="col-4 column">
+				<button ng-click="generatecsv()" class="btn btn-default">Generate CSV</button>
+  			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-6 column">
+				<label >HTTP RESPONSE STATUS: {{status}}</label>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-6 column">
+					<label for="stdout">Standard Output:</label>
+					<textarea class="form-control" rows="5" id="stdout">{{stdout}}</textarea>
+			</div>		
+			<div class="col-md-6 column">
+					<label for="exception">Exceptions:</label>
+					<textarea class="form-control" rows="5" id="exception">{{exception}}</textarea>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-6 column">
+					<label for="stderr">Standard Error:</label>
+					<textarea class="form-control" rows="5" id="stderr">{{stderr}}</textarea>
+			</div>		
+			<div class="col-md-6 column">
+					<label for="response">HTTP Response Entity:</label>
+					<textarea class="form-control" rows="5" id="response">{{response}}</textarea>
+			</div>
+		</div>
+	</div>
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
