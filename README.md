@@ -1,6 +1,17 @@
 # XL Release Custom Report Plugin
 
 
+[![Build Status][xlr-custom-report-plugin-travis-image] ][xlr-custom-report-plugin-travis-url]
+[![License: MIT][xlr-custom-report-plugin-license-image] ][xlr-custom-report-plugin-license-url]
+[![Github All Releases][xlr-custom-report-plugin-downloads-image] ]()
+
+[xlr-custom-report-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xlr-custom-report-plugin.svg?branch=master
+[xlr-custom-report-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xlr-custom-report-plugin
+
+[xlr-custom-report-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xlr-custom-report-plugin-license-url]: https://opensource.org/licenses/MIT
+
+[xlr-custom-report-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xlr-custom-report-plugin/total.svg
 
 ## Preface
 This document describes the functionality provided by the 'xlr-custom-report-plugin'
