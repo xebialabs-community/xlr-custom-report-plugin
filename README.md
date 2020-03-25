@@ -108,7 +108,7 @@ report = "1,2,3,4,5\n6,7,8,9,10\n"
 #### Pull custom fields from a release
 ```
 report =  "Template,Phase Name,Task Title,Owner,Team\n"
-release = releaseApi.searchReleasesByTitle("temp release at Mon Sep 30 14:03:19 EDT 2019")[0]
+release = releaseApi.searchReleasesByTitle("Configure XL Release")[0]
 for p in release.phases:
   for t in p.tasks:
     report = "%s%s,%s,%s,%s,%s\n" % (report,release.title, p.title,t.title, t.owner, t.team)
