@@ -7,5 +7,8 @@
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
-reportlist = [item.title for item in configurationApi.searchByTypeAndTitle("report.CustomReport","")]
+
+folderPath = "Customizations/Customizations-sub-1/Customizations-sub-2"
+folder = folderApi.find(folderPath, 1)
+reportlist = [item.title for item in configurationApi.searchByTypeAndTitle("report.CustomReport","",folder.id)]
 response.entity = reportlist
