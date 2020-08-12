@@ -9,6 +9,18 @@
 #
 
 report_name = request.query['type']
-report_ci = configurationApi.searchByTypeAndTitle("report.CustomReport", report_name)[0]
+report_ci = None
+
+folderPath = None
+if 'folderPath' in request.query:
+    if request.query['folderPath']:
+        if request.query['folderPath'] != 'undefined':
+            folderPath = request.query['folderPath']
+if folderPath:
+    folder = folderApi.find(folderPath, 1)
+    report_ci = configurationApi.searchByTypeAndTitle("report.CustomReport", report_name, folder.id)[0]
+else:
+    report_ci = configurationApi.searchByTypeAndTitle("report.CustomReport", report_name)[0]
+
 exec(report_ci.script)
 response.entity= report

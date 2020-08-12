@@ -32,7 +32,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
           });
     };
     $scope.testreport = function() {
-        $http.get('/api/extension/report?type=' + $scope.selectedValue).then(
+        $http.get('/api/extension/report?folderPath=' + $scope.folderPath + '&type=' + $scope.selectedValue).then(
             function success(response) {
                 $scope.stdout = response.data.stdout;
                 $scope.stderr = response.data.stderr;
@@ -49,7 +49,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             });
     };
     $scope.generatecsv = function() {
-        $http.get('/api/extension/report?type=' + $scope.selectedValue ).then(
+        $http.get('/api/extension/report?folderPath=' + $scope.folderPath + '&type=' + $scope.selectedValue).then(
             function success(response) {
                 $scope.stdout = response.data.stdout;
                 $scope.stderr = response.data.stderr;
