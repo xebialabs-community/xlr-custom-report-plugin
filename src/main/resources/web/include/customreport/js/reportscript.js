@@ -14,7 +14,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     $scope.resultCis =[""]
     $scope.submit = function() {
-          alert("Executing submit() function");
           $http.get('/api/extension/reportlist?folderPath=' + $scope.folderPath).then(
           function success(response) {
               $scope.resultCis = response.data.entity;
