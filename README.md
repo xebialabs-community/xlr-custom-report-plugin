@@ -55,18 +55,19 @@ User can configure custom reports by writing their own scripts. A new shared con
 ![](images/snap2.png)
 
 ## GUI Usage
-Click on the top level custom menu **CustomReport** and you will see the following UI. The dropdown pulls the list of all reports configured under Shared Configuration
+Click on the top level custom menu **CustomReport** and you will see the following UI. Enter a folder path if desired and click Refresh.  The dropdown pulls the list of all reports configured under Shared Configuration and all reports visible from the folder path if present.
+Click Refresh each time you change the folder path input.
 
-#### Snapshot 3
+#### Snapshot 3a
 
-![](images/snap3.png)
+![](images/snap3a.png)
 
 
 Click on the **Test Report** to validate the execution and it also shows the output or errors
 
-#### Snapshot 4
+#### Snapshot 4a
 
-![](images/snap4.png)
+![](images/snap4a.png)
 
 Click on the **Generate CSV** and the system would download a CSV file that contains that output. you can open it up in Excel and use it to your convenience.
 
@@ -76,16 +77,17 @@ Click on the **Generate CSV** and the system would download a CSV file that cont
 
 ## REST Endpoint Usage
 
-Here's how you can also call the custom REST API to pull the data externally.
+Here's how you can also call the custom REST API to pull the data externally.  The format for the folder path is MyFolder/MySubfolder/etc., using the path visible in the Folder tree on the Design panel.
 
-**REST API** : http://localhost:6516/api/extension/reportlist ( GET, basicauth )
+
+**REST API** : http://localhost:5516/api/extension/reportlist?folderPath=< folder path> ( GET, basicauth ).
 
 Pulls the list of custom reports
 
 #### Snapshot 6
 ![](images/snap6.png)
 
-**REST API** : http://localhost:6516/api/extension/report?type=< reportname > ( GET, basicauth )
+**REST API** : http://localhost:6516/api/extension/report?folderPath=< folder path >&type=< reportname > ( GET, basicauth ).
 
 Pulls the actual report
 
