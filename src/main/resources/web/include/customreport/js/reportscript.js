@@ -10,71 +10,68 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 'use strict';
 
 (function () {
-		var ReportController = function($http, $scope) {
-					
-					$scope.resultCis =[""]
-					$scope.submit = function() {
-						$http.get('/api/extension/reportlist').then(
-							  function success(response) {
-							  		$scope.resultCis = response.data.entity;
-					    			$scope.stdout = response.data.stdout;
-									$scope.stderr = response.data.stderr;
-									$scope.exception = response.data.exception;
-									$scope.response = response.data.entity;
-									$scope.status = response.status
-							  },
-							  function error(response) {
-					    			$scope.stdout = response.data.stdout;
-									$scope.stderr = response.data.stderr;
-									$scope.exception = response.data.exception;
-									$scope.response = response.data.entity;
-									$scope.status = response.status;
-							  });							
-					};
-					$scope.testreport = function() {
-						$http.get('/api/extension/report?type=' + $scope.selectedValue ).then(
-							  function success(response) {
-					    			$scope.stdout = response.data.stdout;
-									$scope.stderr = response.data.stderr;
-									$scope.exception = response.data.exception;
-									$scope.response = response.data.entity;
-									$scope.status = response.status;
-							  },
-							  function error(response) {
-					    			$scope.stdout = response.data.stdout;
-									$scope.stderr = response.data.stderr;
-									$scope.exception = response.data.exception;
-									$scope.response = response.data.entity;
-									$scope.status = response.status;
-							  });							
-					};
-					$scope.generatecsv = function() {
-						$http.get('/api/extension/report?type=' + $scope.selectedValue ).then(
-							  function success(response) {
-					    			$scope.stdout = response.data.stdout;
-									$scope.stderr = response.data.stderr;
-									$scope.exception = response.data.exception;
-									$scope.status = response.status;
-									
-									$scope.csvContent = "data:text/csv;charset=utf-8," + response.data.entity;
-									$scope.encodedUri = encodeURI($scope.csvContent);
-									window.open($scope.encodedUri);
-									//alert($scope.encodedUri);
-							  },
-							  function error(response) {
-					    			$scope.stdout = response.data.stdout;
-									$scope.stderr = response.data.stderr;
-									$scope.exception = response.data.exception;
-									$scope.status = response.status;
-							  });		
-							
-					};
+    var ReportController = function($http, $scope) {
 
-					
-				$scope.submit();
-				};
+    $scope.resultCis =[""]
+    $scope.submit = function() {
+          alert("Executing submit() function");
+          $http.get('/api/extension/reportlist?folderPath=' + $scope.folderPath).then(
+          function success(response) {
+              $scope.resultCis = response.data.entity;
+              $scope.stdout = response.data.stdout;
+              $scope.stderr = response.data.stderr;
+              $scope.exception = response.data.exception;
+              $scope.response = response.data.entity;
+              $scope.status = response.status
+          },
+          function error(response) {
+              $scope.stdout = response.data.stdout;
+              $scope.stderr = response.data.stderr;
+              $scope.exception = response.data.exception;
+              $scope.response = response.data.entity;
+              $scope.status = response.status;
+          });
+    };
+    $scope.testreport = function() {
+        $http.get('/api/extension/report?type=' + $scope.selectedValue).then(
+            function success(response) {
+                $scope.stdout = response.data.stdout;
+                $scope.stderr = response.data.stderr;
+                $scope.exception = response.data.exception;
+                $scope.response = response.data.entity;
+                $scope.status = response.status;
+            },
+            function error(response) {
+                $scope.stdout = response.data.stdout;
+                $scope.stderr = response.data.stderr;
+                $scope.exception = response.data.exception;
+                $scope.response = response.data.entity;
+                $scope.status = response.status;
+            });
+    };
+    $scope.generatecsv = function() {
+        $http.get('/api/extension/report?type=' + $scope.selectedValue ).then(
+            function success(response) {
+                $scope.stdout = response.data.stdout;
+                $scope.stderr = response.data.stderr;
+                $scope.exception = response.data.exception;
+                $scope.status = response.status;
+                $scope.csvContent = "data:text/csv;charset=utf-8," + response.data.entity;
+                $scope.encodedUri = encodeURI($scope.csvContent);
+                window.open($scope.encodedUri);
+            //alert($scope.encodedUri);
+            },
+      function error(response) {
+          $scope.stdout = response.data.stdout;
+          $scope.stderr = response.data.stderr;
+          $scope.exception = response.data.exception;
+          $scope.status = response.status;
+      });
+    };
 
-		ReportController.$inject = ['$http','$scope' ];
-		angular.module('extension.report', []);
-		angular.module('extension.report').controller('xlrelease.report.ReportController', ReportController);
+    $scope.submit();
+    }
+    ReportController.$inject = ['$http','$scope' ];
+    angular.module('extension.report', []);
+    angular.module('extension.report').controller('xlrelease.report.ReportController', ReportController);
 })();

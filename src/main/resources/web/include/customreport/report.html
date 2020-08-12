@@ -7,16 +7,18 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
     <div ng-controller="xlrelease.report.ReportController as ReportController" class="container">
         <div class="row clearfix">
-            <div class="col-4 column">
+            <div class="col-3 column">
                 <label>Folder Path</label>
                 <input class="form-control" id="folderpathinput" ng-model="folderPath" />
             </div>
-            <div class="col-4 column">
+            <div class="col-2 column">
+                <button ng-click="submit()" class="btn btn-default">Refresh</button>
+            </div>
+            <div class="col-3 column">
                 <label >Custom Report List</label>
-                <select class="form-control" id="dropdownselect"  ng-model="selectedValue" >
+                <select class="form-control" id="dropdownselect" ng-model="selectedValue" >
                     <option ng-repeat="item in resultCis track by $index" ng-value="item">{{item}}</option>
                 </select>
             </div>

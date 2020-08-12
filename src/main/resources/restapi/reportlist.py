@@ -8,7 +8,14 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-folderPath = "Customizations/Customizations-sub-1/Customizations-sub-2"
+query = request.query
+logger.info("query=" + str(query))
+if 'folderPath' in query:
+    folderPath = request.query['folderPath']
+else:
+    folderPath = "Customizations/Customizations-sub-1/Customizations-sub-2"
+logger.info("folderPath=" + str(folderPath))
 folder = folderApi.find(folderPath, 1)
+logger.info("folder.id=" + folder.id)
 reportlist = [item.title for item in configurationApi.searchByTypeAndTitle("report.CustomReport","",folder.id)]
 response.entity = reportlist
